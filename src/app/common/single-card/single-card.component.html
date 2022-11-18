@@ -1,0 +1,49 @@
+<div class="col-2">
+  <div
+    class="card bg-dark mx-3 my-3"
+    style="width: 20rem; height: 21rem; border-radius: 1em"
+  >
+    <img
+      class="card-img-top"
+      [src]="target.image"
+      alt="Astro target image"
+      style="border-radius: 1em 1em 0 0"
+    />
+
+    <div class="card-body text-white">
+      <h5 class="card-title">
+        {{ target.catalogueNumber }} - {{ target.name }}
+      </h5>
+      <div class="card-text">
+        <p>
+          {{ target.type }} •
+
+          {{ target.magnitude }}m •
+
+          {{ target.constellation }}
+        </p>
+      </div>
+    </div>
+    <p *ngIf="target.isInMilkyWay" class="milkyway-badge">
+      <img
+        style="width: 30px"
+        src="https://firebasestorage.googleapis.com/v0/b/astro-catalogue.appspot.com/o/milkyway.ico?alt=media&token=b54fa65d-d8e5-4cd7-b4d7-87ffa76d1b0e"
+        alt="milkyway badge"
+      />
+    </p>
+
+    <div class="actions">
+      <i
+        (click)="onEditCard(target)"
+        routerLink="/admin"
+        class="fa fa-file-text"
+        aria-hidden="true"
+      ></i>
+      <i
+        (click)="onDeleteCard(target)"
+        class="fa fa-ban"
+        aria-hidden="true"
+      ></i>
+    </div>
+  </div>
+</div>

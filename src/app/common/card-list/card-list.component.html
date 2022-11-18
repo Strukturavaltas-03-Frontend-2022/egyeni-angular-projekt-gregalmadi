@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination my-2 justify-content-center">
+      <li (click)="onArrowClick('-')" class="page-item">
+        <a
+          class="page-link bg-info text-white border-secondary"
+          aria-label="Previous"
+        >
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li
+        *ngFor="let page of pageIterator"
+        class="page-item"
+        (click)="onPageClick(page)"
+      >
+        <a
+          [ngClass]="page.clicked === true ? 'text-info' : 'text-white'"
+          class="page-link bg-dark border-secondary"
+        >
+          {{ page.pageNum }}
+        </a>
+      </li>
+
+      <li (click)="onArrowClick('+')" class="page-item">
+        <a
+          class="page-link bg-info text-white border-secondary"
+          aria-label="Next"
+        >
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="row d-flex justify-content-center">
+    <app-single-card
+      *ngFor="
+        let target of astroTargets
+          | slice: sliceEnd - 20:sliceEnd
+          | filterByType: typeParams
+          | filterByMilkyway: milkywayChecker
+          | filterByMagnitude: magnitudeRanges
+          | filterByName: searchString
+      "
+      [target]="target"
+    ></app-single-card>
+  </div>
+</div>

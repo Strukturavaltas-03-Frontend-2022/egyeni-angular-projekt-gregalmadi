@@ -1,0 +1,37 @@
+.card {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border: none !important;
+}
+
+.card:hover {
+  animation: enlarge 0.5s forwards ease-in-out;
+}
+
+.milkyway-badge {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.actions {
+  position: absolute;
+  right: 5px;
+  bottom: 10px;
+  display: flex;
+  gap: 15px;
+  text-align: center;
+  padding: 5px 5px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+}
+
+@keyframes enlarge {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}

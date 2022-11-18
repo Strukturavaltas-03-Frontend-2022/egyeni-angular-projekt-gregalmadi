@@ -1,0 +1,72 @@
+<div class="row py-5">
+  <div
+    class="col-lg-12 col-sm-12 mx-auto my-auto d-flex flex-lg-row flex-column align-items-center justify-content-center"
+  >
+    <div class="dropdown mx-lg-5 my-sm-2">
+      <button
+        class="btn btn-dark dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Filter by type
+      </button>
+      <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+        <label *ngFor="let type of types" class="dropdown-item text-white">
+          <input (change)="onTypeChange(type.mainType)" type="checkbox" />
+          {{ type.mainType }} ({{ type.count }})
+        </label>
+      </div>
+    </div>
+
+    <div class="dropdown mx-lg-5 my-sm-2">
+      <button
+        class="btn btn-dark dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Filter by magnitude
+      </button>
+      <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+        <label class="dropdown-item text-white">
+          <input (click)="onMagnitudeRangeChange('bright')" type="checkbox" />
+          &lt;6m
+        </label>
+        <label class="dropdown-item text-white">
+          <input (click)="onMagnitudeRangeChange('medium')" type="checkbox" />
+          6-10m
+        </label>
+        <label class="dropdown-item text-white">
+          <input (click)="onMagnitudeRangeChange('dim')" type="checkbox" />
+          &gt;10m
+        </label>
+      </div>
+    </div>
+    <label class="mx-lg-5 my-sm-2 text-white bg-dark p-2 rounded">
+      <input type="checkbox" (click)="toggleMilkyway()" /> Inside-Milkyway
+    </label>
+
+    <div class="input-group d-flex mx-lg-5 my-sm-2 w-25">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="searchKey"
+        (keyup)="onTitleSearch()"
+        aria-label="search word"
+        aria-describedby="searchkey"
+      />
+      <div class="input-group-append">
+        <span
+          class="input-group-text bg-dark text-white border-0"
+          id="searchkey"
+          >Search for astro target name</span
+        >
+      </div>
+    </div>
+  </div>
+</div>

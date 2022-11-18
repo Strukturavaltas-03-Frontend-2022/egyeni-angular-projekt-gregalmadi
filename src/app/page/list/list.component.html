@@ -1,0 +1,13 @@
+<app-filters
+  (typeChange)="typeUpdates($event)"
+  (milkywayChkbxChange)="milkywayChkbxUpdates($event)"
+  (magnitudeRangeChange)="magnitudeUpdates($event)"
+  (keywordChange)="nameUpdates($event)"
+></app-filters>
+
+<app-card-list
+  [typeParams]="typeParams"
+  [milkywayChecker]="milkywayChecker"
+  [magnitudeRanges]="magnitudeRanges"
+  [searchString]="searchString"
+></app-card-list>
