@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-list',
@@ -10,6 +11,11 @@ export class ListComponent implements OnInit {
   milkywayChecker: boolean = false;
   magnitudeRanges: string[] = [];
   searchString: string = '';
+
+  sliceEnd: number = 20;
+  showAll: boolean = true;
+
+  milkywayBadge: string = environment.milkywayBadgeURL;
 
   constructor() {}
 
@@ -29,5 +35,13 @@ export class ListComponent implements OnInit {
 
   nameUpdates(param: string) {
     this.searchString = param;
+  }
+
+  onPageChange(page: number) {
+    this.sliceEnd = page;
+  }
+
+  onToggleList(toggler: boolean) {
+    this.showAll = toggler;
   }
 }

@@ -1,1 +1,163 @@
-<form action=""></form>
+<div class="row">
+  <div
+    class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 p-5"
+  >
+    <h2 class="py-5 text-center">Astro Target Editor</h2>
+    <form #targetForm="ngForm" (ngSubmit)="onUpdate(target)">
+      <div class="form-group">
+        <label for="">Catalogue Number</label>
+        <input
+          name="catno"
+          [(ngModel)]="target.catalogueNumber"
+          type="text"
+          class="form-control"
+          pattern="^(M|NGC|IC|Barnard)([1-9]{1})([0-9]{0,3})$"
+          required
+        />
+        <div
+          class="error-message"
+          *ngIf="
+            targetForm.controls['catno']?.invalid &&
+            targetForm.controls['catno']?.touched
+          "
+        >
+          The catalogue number of the target must start with either
+          'M'/'NGC'/'IC'/'Barnard', have least one and at most four followup
+          numbers.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Constellation</label>
+        <select
+          [(ngModel)]="target.constellation"
+          required
+          class="custom-select form-control"
+          name="constellation"
+        >
+          <option selected>
+            {{ target.constellation }}
+          </option>
+          <option
+            *ngFor="let constellation of constellations"
+            [value]="constellation"
+          >
+            {{ constellation }}
+          </option>
+        </select>
+        <div
+          class="error-message"
+          *ngIf="
+            targetForm.controls['constellation']?.invalid &&
+            targetForm.controls['constellation']?.touched
+          "
+        >
+          Constellation must be selected.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="">Name</label>
+        <input
+          name="name"
+          [(ngModel)]="target.name"
+          type="text"
+          class="form-control"
+          required
+        />
+      </div>
+      <div
+        class="error-message"
+        *ngIf="
+          targetForm.controls['name']?.invalid &&
+          targetForm.controls['name']?.touched
+        "
+      >
+        Name must be set.
+      </div>
+
+      <div class="form-group">
+        <label for="">Type</label>
+        <select
+          [(ngModel)]="target.type"
+          required
+          class="custom-select form-control"
+          name="type"
+        >
+          <option selected>
+            {{ target.type }}
+          </option>
+          <option *ngFor="let type of astroTypes" [value]="type">
+            {{ type }}
+          </option>
+        </select>
+        <div
+          class="error-message"
+          *ngIf="
+            targetForm.controls['type']?.invalid &&
+            targetForm.controls['type']?.touched
+          "
+        >
+          Type must be selected.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Image link</label>
+        <input
+          name="image"
+          [(ngModel)]="target.image"
+          type="text"
+          class="form-control"
+          required
+          [pattern]="imgURLRegExp"
+        />
+      </div>
+      <div
+        class="error-message"
+        *ngIf="
+          targetForm.controls['image']?.invalid &&
+          targetForm.controls['image']?.touched
+        "
+      >
+        Must start with storage url.
+      </div>
+
+      <div class="form-group">
+        <label for="magnitude" class="form-label">Magnitude</label>
+        <div class="d-flex justify-content-between">
+          <p *ngFor="let number of steps">{{ number }}</p>
+        </div>
+        <input
+          [(ngModel)]="target.magnitude"
+          name="magnitude"
+          type="range"
+          class="custom-range"
+          min="0"
+          max="20"
+          step="0.1"
+          id="magnitude"
+        />
+      </div>
+
+      <div class="control d-flex justify-content-center align-items-center">
+        <input
+          [(ngModel)]="target.isInMilkyWay"
+          name="milkyway"
+          type="checkbox"
+          class="control-input"
+          id="milkyway"
+          [checked]="target.isInMilkyWay"
+        />
+        <label class="control-label" for="milkyway">Inside MilkyWay</label>
+      </div>
+
+      <button
+        [disabled]="targetForm.form.invalid"
+        type="submit"
+        class="btn btn-primary btn-block btn-lg"
+      >
+        <i class="fa fa-save"></i>
+      </button>
+    </form>
+  </div>
+</div>

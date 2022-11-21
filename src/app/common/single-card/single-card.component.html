@@ -25,17 +25,12 @@
       </div>
     </div>
     <p *ngIf="target.isInMilkyWay" class="milkyway-badge">
-      <img
-        style="width: 30px"
-        src="https://firebasestorage.googleapis.com/v0/b/astro-catalogue.appspot.com/o/milkyway.ico?alt=media&token=b54fa65d-d8e5-4cd7-b4d7-87ffa76d1b0e"
-        alt="milkyway badge"
-      />
+      <img style="width: 30px" [src]="milkywayBadge" alt="milkyway badge" />
     </p>
 
     <div class="actions">
       <i
-        (click)="onEditCard(target)"
-        routerLink="/admin"
+        [routerLink]="['/admin/', target.id]"
         class="fa fa-file-text"
         aria-hidden="true"
       ></i>

@@ -35,15 +35,15 @@
       <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
         <label class="dropdown-item text-white">
           <input (click)="onMagnitudeRangeChange('bright')" type="checkbox" />
-          &lt;6m
+          &lt;6m ({{ magnitudes[0] }})
         </label>
         <label class="dropdown-item text-white">
           <input (click)="onMagnitudeRangeChange('medium')" type="checkbox" />
-          6-10m
+          6-10m ({{ magnitudes[1] }})
         </label>
         <label class="dropdown-item text-white">
           <input (click)="onMagnitudeRangeChange('dim')" type="checkbox" />
-          &gt;10m
+          &gt;10m ({{ magnitudes[2] }})
         </label>
       </div>
     </div>

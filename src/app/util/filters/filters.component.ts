@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AstroTarget } from 'src/app/model/astro-target';
+
 import { astroTypes } from 'src/app/model/types';
+import { RelayTargetsService } from 'src/app/service/relay-targets.service';
 
 @Component({
   selector: 'app-filters',
@@ -9,27 +11,37 @@ import { astroTypes } from 'src/app/model/types';
 })
 export class FiltersComponent implements OnInit {
   types = astroTypes;
+  magnitudes = [0, 0, 0];
 
   typeFilterArray: string[] = [];
   milkywayCheck: boolean = false;
   magnitudeRanges: string[] = [];
   searchKey: string = '';
 
-  //@Input() astroTargets: AstroTarget[] = [];
+  astroTargets: AstroTarget[] = [];
 
   @Output() typeChange: EventEmitter<string[]> = new EventEmitter();
   @Output() milkywayChkbxChange: EventEmitter<boolean> = new EventEmitter();
   @Output() magnitudeRangeChange: EventEmitter<string[]> = new EventEmitter();
   @Output() keywordChange: EventEmitter<string> = new EventEmitter();
 
-  constructor() {}
+  constructor(private targetRelay: RelayTargetsService) {}
 
   ngOnInit(): void {
-    /*this.types.forEach((type) => {
+    this.astroTargets = this.targetRelay.getAstroTargetList();
+
+    this.types.forEach((type) => {
+      type.count = 0;
       this.astroTargets.forEach((target) => {
         target.type.includes(type.mainType) ? type.count++ : null;
       });
-    });*/
+    });
+
+    this.astroTargets.forEach((target) => {
+      if (target.magnitude <= 6) this.magnitudes[0]++;
+      if (target.magnitude > 6 && target.magnitude < 10) this.magnitudes[1]++;
+      if (target.magnitude >= 10) this.magnitudes[2]++;
+    });
   }
 
   onTypeChange(filterParam: string): void {

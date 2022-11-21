@@ -6,6 +6,8 @@ export const environment = {
   production: false,
   apiURL:
     'https://astro-catalogue-default-rtdb.europe-west1.firebasedatabase.app/',
+  milkywayBadgeURL:
+    'https://firebasestorage.googleapis.com/v0/b/astro-catalogue.appspot.com/o/milkyway.ico?alt=media&token=b54fa65d-d8e5-4cd7-b4d7-87ffa76d1b0e',
 };
 
 /*

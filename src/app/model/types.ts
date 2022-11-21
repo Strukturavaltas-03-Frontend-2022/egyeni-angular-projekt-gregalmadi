@@ -7,7 +7,7 @@ export const astroTypes = [
       'Lenticular Galaxy',
       'Unbarred Spiral Galaxy',
     ],
-    count: 22,
+    count: 0,
   },
   {
     mainType: 'Nebula',
@@ -17,14 +17,14 @@ export const astroTypes = [
       'Reflection Nebula',
       'Planetary Nebula',
     ],
-    count: 18,
+    count: 0,
   },
   {
     mainType: 'Cluster',
     subTypes: ['Open Cluster', 'Globular Cluster'],
-    count: 6,
+    count: 0,
   },
-  { mainType: 'Supernova Remnant', count: 2 },
-  { mainType: 'Star Cloud', count: 1 },
-  { mainType: 'Mixed', count: 1 },
+  { mainType: 'Supernova Remnant', count: 0 },
+  { mainType: 'Star Cloud', count: 0 },
+  { mainType: 'Mixed', count: 0 },
 ];

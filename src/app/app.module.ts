@@ -17,9 +17,11 @@ import { FilterByMilkywayPipe } from './pipes/filter-by-milkyway.pipe';
 import { FilterByMagnitudePipe } from './pipes/filter-by-magnitude.pipe';
 import { FilterByNamePipe } from './pipes/filter-by-name.pipe';
 import { SingleCardComponent } from './common/single-card/single-card.component';
+import { PaginationComponent } from './util/pagination/pagination.component';
+import { PagingPipe } from './pipes/paging.pipe';
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent, HomeComponent, ListComponent, AdminComponent, CardListComponent, DataEditorComponent, FiltersComponent, FilterByTypePipe, FilterByMilkywayPipe, FilterByMagnitudePipe, FilterByNamePipe, SingleCardComponent],
+  declarations: [AppComponent, NavigationComponent, HomeComponent, ListComponent, AdminComponent, CardListComponent, DataEditorComponent, FiltersComponent, FilterByTypePipe, FilterByMilkywayPipe, FilterByMagnitudePipe, FilterByNamePipe, SingleCardComponent, PaginationComponent, PagingPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,

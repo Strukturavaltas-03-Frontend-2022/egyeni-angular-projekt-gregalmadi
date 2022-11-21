@@ -18,16 +18,34 @@ export class HttpService {
       .get<{ [key: string]: AstroTarget }>(`${this.firebaseUrl}${this.entity}`)
       .pipe(
         map((responseData) => {
-          const productArray: AstroTarget[] = [];
+          const targetArray: AstroTarget[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
-              productArray.push({ ...responseData[key], uniqueId: key });
+              targetArray.push({ ...responseData[key], uniqueId: key });
             }
           }
-          return productArray;
+          return targetArray;
         })
       );
   }
+
+  /*fetchSingleTarget(id: number) {
+    return this.http
+      .get<{ [key: string]: AstroTarget }>(
+        `${this.firebaseUrl}astro/${id}.json`
+      )
+      .pipe(
+        map((responseData) => {
+          const targetArray: AstroTarget[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              targetArray.push({ ...responseData[key], uniqueId: key });
+            }
+          }
+          return targetArray;
+        })
+      );
+  }*/
 
   addTarget(newTarget: AstroTarget) {
     return this.http.post(`${this.firebaseUrl}${this.entity}`, newTarget);
