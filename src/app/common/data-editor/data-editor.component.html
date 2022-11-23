@@ -1,16 +1,16 @@
-<div class="row">
+<div class="row mx-0 pt-5">
   <div
-    class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 p-5"
+    class="editForm col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 p-5"
   >
-    <h2 class="py-5 text-center">Astro Target Editor</h2>
+    <h2 class="pb-5 text-center text-white">Astro Target Editor</h2>
     <form #targetForm="ngForm" (ngSubmit)="onUpdate(target)">
       <div class="form-group">
-        <label for="">Catalogue Number</label>
+        <label class="text-white">Catalogue Number</label>
         <input
           name="catno"
           [(ngModel)]="target.catalogueNumber"
           type="text"
-          class="form-control"
+          class="form-control bg-secondary text-white border-0"
           pattern="^(M|NGC|IC|Barnard)([1-9]{1})([0-9]{0,3})$"
           required
         />
@@ -27,11 +27,11 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="">Constellation</label>
+        <label class="text-white">Constellation</label>
         <select
           [(ngModel)]="target.constellation"
           required
-          class="custom-select form-control"
+          class="custom-select form-control bg-secondary text-white border-0"
           name="constellation"
         >
           <option selected>
@@ -56,31 +56,31 @@
       </div>
 
       <div class="form-group">
-        <label for="">Name</label>
+        <label class="text-white">Name</label>
         <input
           name="name"
           [(ngModel)]="target.name"
           type="text"
-          class="form-control"
+          class="form-control bg-secondary text-white border-0"
           required
         />
-      </div>
-      <div
-        class="error-message"
-        *ngIf="
-          targetForm.controls['name']?.invalid &&
-          targetForm.controls['name']?.touched
-        "
-      >
-        Name must be set.
+        <div
+          class="error-message"
+          *ngIf="
+            targetForm.controls['name']?.invalid &&
+            targetForm.controls['name']?.touched
+          "
+        >
+          Name must be set.
+        </div>
       </div>
 
       <div class="form-group">
-        <label for="">Type</label>
+        <label class="text-white">Type</label>
         <select
           [(ngModel)]="target.type"
           required
-          class="custom-select form-control"
+          class="custom-select form-control bg-secondary text-white border-0"
           name="type"
         >
           <option selected>
@@ -102,36 +102,36 @@
       </div>
 
       <div class="form-group">
-        <label for="image">Image link</label>
+        <label class="text-white" for="image">Image link</label>
         <input
           name="image"
           [(ngModel)]="target.image"
           type="text"
-          class="form-control"
+          class="form-control bg-secondary text-white border-0"
           required
           [pattern]="imgURLRegExp"
         />
-      </div>
-      <div
-        class="error-message"
-        *ngIf="
-          targetForm.controls['image']?.invalid &&
-          targetForm.controls['image']?.touched
-        "
-      >
-        Must start with storage url.
+        <div
+          class="error-message"
+          *ngIf="
+            targetForm.controls['image']?.invalid &&
+            targetForm.controls['image']?.touched
+          "
+        >
+          Must start with storage url.
+        </div>
       </div>
 
       <div class="form-group">
-        <label for="magnitude" class="form-label">Magnitude</label>
+        <label for="magnitude" class="form-label text-white">Magnitude</label>
         <div class="d-flex justify-content-between">
-          <p *ngFor="let number of steps">{{ number }}</p>
+          <p class="text-white" *ngFor="let number of steps">{{ number }}</p>
         </div>
         <input
           [(ngModel)]="target.magnitude"
           name="magnitude"
           type="range"
-          class="custom-range"
+          class="custom-range border-0"
           min="0"
           max="20"
           step="0.1"
@@ -139,7 +139,9 @@
         />
       </div>
 
-      <div class="control d-flex justify-content-center align-items-center">
+      <div
+        class="control d-flex justify-content-center align-items-center mb-3"
+      >
         <input
           [(ngModel)]="target.isInMilkyWay"
           name="milkyway"
@@ -148,15 +150,21 @@
           id="milkyway"
           [checked]="target.isInMilkyWay"
         />
-        <label class="control-label" for="milkyway">Inside MilkyWay</label>
+        <label class="control-label text-white ml-2 mb-0" for="milkyway">
+          Inside MilkyWay</label
+        >
       </div>
 
       <button
         [disabled]="targetForm.form.invalid"
         type="submit"
-        class="btn btn-primary btn-block btn-lg"
+        class="btn btn-secondary btn-block btn-lg"
       >
-        <i class="fa fa-save"></i>
+        <img
+          style="height: 40px"
+          [src]="milkywayBadge"
+          alt="save astro target"
+        />
       </button>
     </form>
   </div>

@@ -8,6 +8,7 @@ import { astroTypes } from 'src/app/model/types';
 import { HttpService } from 'src/app/service/http.service';
 
 import { RelayTargetsService } from 'src/app/service/relay-targets.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-data-editor',
@@ -21,6 +22,8 @@ export class DataEditorComponent implements OnInit {
   constellations = constellations;
   astroTypes = subTypes;
   steps: number[] = [0, 5, 10, 15, 20];
+
+  milkywayBadge: string = environment.milkywayBadgeURL;
 
   imgURLRegExp = new RegExp(
     '^' +

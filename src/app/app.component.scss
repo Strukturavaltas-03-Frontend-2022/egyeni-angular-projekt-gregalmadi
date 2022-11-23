@@ -1,0 +1,14 @@
+body {
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.astroBackground {
+  min-height: 100vh;
+  max-width: 100vw;
+  background: url("https://firebasestorage.googleapis.com/v0/b/astro-catalogue.appspot.com/o/webbbw.jpg?alt=media&token=8abe6620-0d55-46f7-b8a9-2de0638acd50"),
+    #272727;
+}

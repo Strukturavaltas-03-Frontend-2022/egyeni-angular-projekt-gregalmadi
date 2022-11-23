@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AstroTarget } from 'src/app/model/astro-target';
 import { HttpService } from 'src/app/service/http.service';
 import { RelayTargetsService } from 'src/app/service/relay-targets.service';
@@ -15,7 +16,8 @@ export class SingleCardComponent implements OnInit {
 
   constructor(
     private httpService: HttpService,
-    private targetRelay: RelayTargetsService
+    private targetRelay: RelayTargetsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -24,6 +26,7 @@ export class SingleCardComponent implements OnInit {
     this.httpService.deleteTarget(target).subscribe((target) => {
       this.httpService.fetchTargets().subscribe((targets) => {
         this.targetRelay.setAstroTargetList([...targets]);
+        this.router.navigate(['/']).then(() => this.router.navigate(['/list']));
         console.log(`Target was successfully deleted: ${target}`);
       });
     });

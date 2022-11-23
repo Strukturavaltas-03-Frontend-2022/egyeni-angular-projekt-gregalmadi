@@ -18,6 +18,22 @@ Changes and updates:
 - Filter categories now feature dynamically updated counters that show user the amount of items in each category.
 - Added button to navbar to navigate between 'Home' and 'List' pages
 
+|2022.11.23 - ver 1.15
+
+- Visual changes: added background, changed color theme slightly all around components
+- Added documentation
+
 |Application documentation:
 
-- Coming soon
+- This mini listing application features 50 of the most famous / special / exotic and also many of my favourite deep sky objects in the night sky of the northern hemisphere.
+- Backend solution is realized with the use of a Firebase realtime database with an additional storage for the card images.
+- The application can be initialized through a terminal using the 'ng serve -o' or 'npm run start' command.
+- The 'Home' page features a very short introduction with a direct button navigating to the 'List' component.
+- Besides the usual menu links, the navbar also has a navigating button in the top right corner, which changes display text and action based on which page the user is currently on.
+- The 'List' page has all 50 item cards, each with its unique image and details below. Every card has a delete and edit button in the bottom right corner.
+- Each card has an indicator in its top right corner aswell, showing whether a certain target is inside the Milky Way or not.
+- Multiple filtering options are available to narrow down the full list, by types, magnitude, name search and a checkbox to only show objects inside of our galaxy or all of them together instead.
+- Unchecking the default checked 'List All' button enables a paging component that splits all records into 3 pages of max 20 items.
+- The 'Add new target' button navigates the user to an editor window with unique validation for most input fields, and lets user create a new astro target, aswell as add it to the database.
+- Deleting an item removes it from the list, and the database aswell.
+- Editing an item navigates the user to the same editor window as in the adding segment, except this time all input fields are prefilled with the currently selected target's details, that the user can respec within validation limits. Clicking the save button navigates the user back to the listing page that already reflects the updated data, just like the database.

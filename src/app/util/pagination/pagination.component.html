@@ -2,7 +2,7 @@
   <ul class="pagination my-2 justify-content-center">
     <li (click)="onArrowClick('-')" class="page-item">
       <a
-        class="page-link bg-info text-white border-secondary"
+        class="page-link bg-secondary text-white border-secondary"
         aria-label="Previous"
       >
         <span aria-hidden="true">&laquo;</span>
@@ -15,7 +15,7 @@
       (click)="onPageClick(page)"
     >
       <a
-        [ngClass]="page.clicked === true ? 'text-info' : 'text-white'"
+        [ngClass]="page.clicked === true ? 'text-white' : 'text-secondary'"
         class="page-link bg-dark border-secondary"
       >
         {{ page.pageNum }}
@@ -24,7 +24,7 @@
 
     <li (click)="onArrowClick('+')" class="page-item">
       <a
-        class="page-link bg-info text-white border-secondary"
+        class="page-link bg-secondary text-white border-secondary"
         aria-label="Next"
       >
         <span aria-hidden="true">&raquo;</span>
