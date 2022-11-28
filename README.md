@@ -23,6 +23,12 @@ Changes and updates:
 - Visual changes: added background, changed color theme slightly all around components
 - Added documentation
 
+|2022.11.28 - ver 1.15
+
+- Visual changes: changed navbar toggler background color, changed form submit button color based on validity
+- Added new galaxy subtype 'Elliptical Galaxy'
+- Fixed issue where leaving the editor without updating database would update data locally.
+
 |Application documentation:
 
 - This mini listing application features 50 of the most famous / special / exotic and also many of my favourite deep sky objects in the night sky of the northern hemisphere.

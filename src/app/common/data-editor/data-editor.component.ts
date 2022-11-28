@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AstroTarget } from 'src/app/model/astro-target';
 import { subTypes } from 'src/app/model/astroSubTypes';
 import { constellations } from 'src/app/model/constellations';
-import { astroTypes } from 'src/app/model/types';
 import { HttpService } from 'src/app/service/http.service';
-
 import { RelayTargetsService } from 'src/app/service/relay-targets.service';
 import { environment } from 'src/environments/environment';
 
@@ -43,9 +40,11 @@ export class DataEditorComponent implements OnInit {
       if (params['id'] === '0') {
         this.target = new AstroTarget();
       } else {
-        this.target = this.targetRelay
-          .getAstroTargetList()
-          .filter((target) => target.id === Number(params['id']))[0];
+        this.target = {
+          ...this.targetRelay
+            .getAstroTargetList()
+            .filter((target) => target.id === Number(params['id']))[0],
+        };
       }
     });
 
@@ -53,7 +52,6 @@ export class DataEditorComponent implements OnInit {
   }
 
   onUpdate(target: AstroTarget): void {
-    console.log(target);
     // new target request
     if (target.uniqueId === '') {
       target.id = this.astroTargets.length + 1;

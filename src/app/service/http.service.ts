@@ -29,20 +29,14 @@ export class HttpService {
       );
   }
 
-  /*fetchSingleTarget(id: number) {
+  /*fetchSingleTarget(uniqueId: string) {
     return this.http
-      .get<{ [key: string]: AstroTarget }>(
-        `${this.firebaseUrl}astro/${id}.json`
-      )
+      .get<AstroTarget>(`${this.firebaseUrl}astro/${uniqueId}.json`)
       .pipe(
         map((responseData) => {
-          const targetArray: AstroTarget[] = [];
-          for (const key in responseData) {
-            if (responseData.hasOwnProperty(key)) {
-              targetArray.push({ ...responseData[key], uniqueId: key });
-            }
-          }
-          return targetArray;
+          responseData['uniqueId'] = uniqueId;
+
+          return responseData;
         })
       );
   }*/

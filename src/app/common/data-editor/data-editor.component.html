@@ -33,10 +33,8 @@
           required
           class="custom-select form-control bg-secondary text-white border-0"
           name="constellation"
+          [value]="target.constellation"
         >
-          <option selected>
-            {{ target.constellation }}
-          </option>
           <option
             *ngFor="let constellation of constellations"
             [value]="constellation"
@@ -82,10 +80,8 @@
           required
           class="custom-select form-control bg-secondary text-white border-0"
           name="type"
+          [value]="target.type"
         >
-          <option selected>
-            {{ target.type }}
-          </option>
           <option *ngFor="let type of astroTypes" [value]="type">
             {{ type }}
           </option>
@@ -158,6 +154,7 @@
       <button
         [disabled]="targetForm.form.invalid"
         type="submit"
+        [ngClass]="targetForm.form.invalid ? 'btn-danger' : 'btn-success'"
         class="btn btn-secondary btn-block btn-lg"
       >
         <img

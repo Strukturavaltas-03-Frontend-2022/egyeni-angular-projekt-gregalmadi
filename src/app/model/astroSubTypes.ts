@@ -3,6 +3,7 @@ export const subTypes = [
   'Barred Spiral Galaxy',
   'Lenticular Galaxy',
   'Unbarred Spiral Galaxy',
+  'Elliptical Galaxy',
 
   'Diffuse Nebula',
   'Emission Nebula',
