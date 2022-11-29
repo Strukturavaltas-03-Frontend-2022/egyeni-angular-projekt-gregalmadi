@@ -29,6 +29,13 @@ Changes and updates:
 - Added new galaxy subtype 'Elliptical Galaxy'
 - Fixed issue where leaving the editor without updating database would update data locally.
 
+|2022.11.29 - ver 1.20
+
+- Visual changes: Home component jumbotron slightly adjusted
+- Added popup messages to every successful database action (create, update, delete)
+- Added new filter option for sorting by catalogue
+- Added stats page with some interesting pie chart statistics
+
 |Application documentation:
 
 - This mini listing application features 50 of the most famous / special / exotic and also many of my favourite deep sky objects in the night sky of the northern hemisphere.
@@ -43,3 +50,5 @@ Changes and updates:
 - The 'Add new target' button navigates the user to an editor window with unique validation for most input fields, and lets user create a new astro target, aswell as add it to the database.
 - Deleting an item removes it from the list, and the database aswell.
 - Editing an item navigates the user to the same editor window as in the adding segment, except this time all input fields are prefilled with the currently selected target's details, that the user can respec within validation limits. Clicking the save button navigates the user back to the listing page that already reflects the updated data, just like the database.
+- All CRUD actions send popup messages to the user on success.
+- Stats page features 3 pie charts displaying information about the listed astronomical objects

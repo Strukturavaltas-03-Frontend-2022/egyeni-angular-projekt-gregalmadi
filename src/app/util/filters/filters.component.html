@@ -51,6 +51,42 @@
       <input type="checkbox" (click)="toggleMilkyway()" /> Inside-Milkyway
     </label>
 
+    <div class="bg-dark text-white p-2 rounded">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="catalogueSelect"
+          id="all"
+          checked
+          (change)="onCatalogueChange($event)"
+        />
+        <label class="form-check-label" for="all"> All </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="catalogueSelect"
+          id="messier"
+          (change)="onCatalogueChange($event)"
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          Messier
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="catalogueSelect"
+          id="ngc"
+          (change)="onCatalogueChange($event)"
+        />
+        <label class="form-check-label" for="flexRadioDefault3"> NGC </label>
+      </div>
+    </div>
+
     <div class="input-group d-flex mx-lg-5 my-sm-2 w-25">
       <input
         type="text"

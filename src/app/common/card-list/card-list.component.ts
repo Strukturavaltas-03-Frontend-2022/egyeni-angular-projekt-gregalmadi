@@ -19,6 +19,7 @@ export class CardListComponent implements OnInit {
   @Input() typeParams: string[] = [];
   @Input() milkywayChecker: boolean = false;
   @Input() magnitudeRanges: string[] = [];
+  @Input() catalogue: string = '';
   @Input() searchString: string = '';
 
   constructor(private targetRelay: RelayTargetsService) {

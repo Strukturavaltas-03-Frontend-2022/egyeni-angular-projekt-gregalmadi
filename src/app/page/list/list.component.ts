@@ -10,6 +10,7 @@ export class ListComponent implements OnInit {
   typeParams: string[] = [];
   milkywayChecker: boolean = false;
   magnitudeRanges: string[] = [];
+  catalogue: string = '';
   searchString: string = '';
 
   sliceEnd: number = 20;
@@ -31,6 +32,10 @@ export class ListComponent implements OnInit {
 
   magnitudeUpdates(params: string[]): void {
     this.magnitudeRanges = [...params];
+  }
+
+  catalogueUpdates(param: string): void {
+    this.catalogue = param;
   }
 
   nameUpdates(param: string) {

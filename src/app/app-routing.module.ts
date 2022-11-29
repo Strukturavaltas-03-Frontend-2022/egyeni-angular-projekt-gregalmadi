@@ -5,6 +5,7 @@ import { ListComponent } from './page/list/list.component';
 import { HomeComponent } from './page/home/home.component';
 import { AdminComponent } from './page/admin/admin.component';
 import { DataEditorComponent } from './common/data-editor/data-editor.component';
+import { StatsComponent } from './page/stats/stats.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'admin/:id',
     component: DataEditorComponent,
+  },
+  {
+    path: 'stats',
+    component: StatsComponent,
   },
   {
     path: '**',

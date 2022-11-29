@@ -3,6 +3,7 @@
   (milkywayChkbxChange)="milkywayChkbxUpdates($event)"
   (magnitudeRangeChange)="magnitudeUpdates($event)"
   (keywordChange)="nameUpdates($event)"
+  (catalogueChange)="catalogueUpdates($event)"
 ></app-filters>
 
 <div class="d-flex justify-content-center align-items-center">
@@ -29,6 +30,7 @@
   [typeParams]="typeParams"
   [milkywayChecker]="milkywayChecker"
   [magnitudeRanges]="magnitudeRanges"
+  [catalogue]="catalogue"
   [searchString]="searchString"
   [sliceEnd]="sliceEnd"
   [showAll]="showAll"

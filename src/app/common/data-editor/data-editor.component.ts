@@ -6,6 +6,7 @@ import { constellations } from 'src/app/model/constellations';
 import { HttpService } from 'src/app/service/http.service';
 import { RelayTargetsService } from 'src/app/service/relay-targets.service';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-data-editor',
@@ -32,7 +33,8 @@ export class DataEditorComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private targetRelay: RelayTargetsService,
     private httpService: HttpService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -55,20 +57,34 @@ export class DataEditorComponent implements OnInit {
     // new target request
     if (target.uniqueId === '') {
       target.id = this.astroTargets.length + 1;
-      this.httpService.addTarget(target).subscribe((target) => {
+      const newTargetName = target.name;
+
+      this.httpService.addTarget(target).subscribe(() => {
         this.httpService.fetchTargets().subscribe((targets) => {
           this.targetRelay.setAstroTargetList([...targets]);
-          console.log(`Target was successfully created: ${target}`);
+
+          this.toastr.success(
+            `${newTargetName} was successfully added!`,
+            'CREATE',
+            { timeOut: 4000, positionClass: 'toast-top-right' }
+          );
+
           this.router.navigate(['/list']);
         });
       });
     }
     // edit ttarget request
     else {
-      this.httpService.updateTarget(target).subscribe((target) => {
+      const editedTargetName = target.name;
+      this.httpService.updateTarget(target).subscribe(() => {
         this.httpService.fetchTargets().subscribe((targets) => {
           this.targetRelay.setAstroTargetList([...targets]);
-          console.log(`Target was successfully edited: ${target}`);
+          this.toastr.info(
+            `${editedTargetName} was successfully updated!`,
+            'UPDATE',
+            { timeOut: 4000, positionClass: 'toast-top-right' }
+          );
+
           this.router.navigate(['/list']);
         });
       });

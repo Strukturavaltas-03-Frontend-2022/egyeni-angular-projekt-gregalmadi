@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,15 +22,38 @@ import { FilterByNamePipe } from './pipes/filter-by-name.pipe';
 import { SingleCardComponent } from './common/single-card/single-card.component';
 import { PaginationComponent } from './util/pagination/pagination.component';
 import { PagingPipe } from './pipes/paging.pipe';
+import { FilterByCataloguePipe } from './pipes/filter-by-catalogue.pipe';
+import { StatsComponent } from './page/stats/stats.component';
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent, HomeComponent, ListComponent, AdminComponent, CardListComponent, DataEditorComponent, FiltersComponent, FilterByTypePipe, FilterByMilkywayPipe, FilterByMagnitudePipe, FilterByNamePipe, SingleCardComponent, PaginationComponent, PagingPipe],
+  declarations: [
+    AppComponent,
+    NavigationComponent,
+    HomeComponent,
+    ListComponent,
+    AdminComponent,
+    CardListComponent,
+    DataEditorComponent,
+    FiltersComponent,
+    FilterByTypePipe,
+    FilterByMilkywayPipe,
+    FilterByMagnitudePipe,
+    FilterByNamePipe,
+    SingleCardComponent,
+    PaginationComponent,
+    PagingPipe,
+    FilterByCataloguePipe,
+    StatsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    NgApexchartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

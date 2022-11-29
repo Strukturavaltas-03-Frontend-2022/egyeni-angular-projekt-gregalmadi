@@ -1,0 +1,50 @@
+<div
+  class="container d-flex flex-column justify-content-center align-items-center"
+>
+  <div class="h2 text-white text-center charts-header">
+    Distribution of listed deep sky objects by type, location and magnitude
+  </div>
+  <div class="charts">
+    <div class="p-5" id="chart">
+      <apx-chart
+        [series]="typesChart.series"
+        [chart]="typesChart.chart"
+        [labels]="typesChart.labels"
+        [responsive]="typesChart.responsive"
+        [legend]="typesChart.legend"
+        [stroke]="typesChart.stroke"
+        [fill]="typesChart.fill"
+        [tooltip]="typesChart.tooltip"
+        [colors]="typesChart.colors"
+      ></apx-chart>
+    </div>
+
+    <div class="p-5" id="chart">
+      <apx-chart
+        [series]="milkyWayChart.series"
+        [chart]="milkyWayChart.chart"
+        [labels]="milkyWayChart.labels"
+        [responsive]="milkyWayChart.responsive"
+        [legend]="milkyWayChart.legend"
+        [stroke]="milkyWayChart.stroke"
+        [fill]="milkyWayChart.fill"
+        [tooltip]="milkyWayChart.tooltip"
+        [colors]="milkyWayChart.colors"
+      ></apx-chart>
+    </div>
+
+    <div class="p-5" id="chart">
+      <apx-chart
+        [series]="magnitudeChart.series"
+        [chart]="magnitudeChart.chart"
+        [labels]="magnitudeChart.labels"
+        [responsive]="magnitudeChart.responsive"
+        [legend]="magnitudeChart.legend"
+        [stroke]="magnitudeChart.stroke"
+        [fill]="magnitudeChart.fill"
+        [tooltip]="magnitudeChart.tooltip"
+        [colors]="magnitudeChart.colors"
+      ></apx-chart>
+    </div>
+  </div>
+</div>

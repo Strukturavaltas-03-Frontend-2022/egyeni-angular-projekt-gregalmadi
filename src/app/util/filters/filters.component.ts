@@ -23,6 +23,7 @@ export class FiltersComponent implements OnInit {
   @Output() typeChange: EventEmitter<string[]> = new EventEmitter();
   @Output() milkywayChkbxChange: EventEmitter<boolean> = new EventEmitter();
   @Output() magnitudeRangeChange: EventEmitter<string[]> = new EventEmitter();
+  @Output() catalogueChange: EventEmitter<string> = new EventEmitter();
   @Output() keywordChange: EventEmitter<string> = new EventEmitter();
 
   constructor(private targetRelay: RelayTargetsService) {}
@@ -71,6 +72,11 @@ export class FiltersComponent implements OnInit {
       this.magnitudeRanges.push(filterParam);
     }
     this.magnitudeRangeChange.emit(this.magnitudeRanges);
+  }
+
+  onCatalogueChange(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.catalogueChange.emit(target.id);
   }
 
   onTitleSearch(): void {
